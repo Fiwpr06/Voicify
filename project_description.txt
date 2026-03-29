@@ -1,0 +1,13 @@
+# Voicify: Advanced Voice Translation Platform
+
+Voicify is a comprehensive voice translation solution designed to break down language barriers through cutting-edge speech recognition and translation technologies. Our platform enables seamless conversion between multiple languages with support for text, audio files, and real-time voice input.
+
+## Key Features
+
+- **Multi-modal Translation**: Convert speech to text, text to speech, and translate between languages in real-time
+- **AI-Enhanced Accuracy**: Leveraging machine learning to improve translation quality and natural language understanding
+- **User History Management**: Secure storage and retrieval of translation history for registered users
+- **Cross-platform Support**: Built with JavaFX for consistent experience across Windows, macOS, and Linux
+- **Offline Capabilities**: Core functionality available without internet connection
+
+The system architecture follows a modular design with separate components for audio processing, translation services, and user management, all integrated through a clean, intuitive interface that prioritizes accessibility and ease of use.
