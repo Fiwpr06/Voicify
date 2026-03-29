@@ -1,0 +1,158 @@
+/* 16:9 Login and Register Styles */
+.login-container {
+    -fx-background-color: linear-gradient(to bottom right, #667eea, #764ba2);
+    -fx-min-width: 1280px;
+    -fx-min-height: 720px;
+    -fx-pref-width: 1280px;
+    -fx-pref-height: 720px;
+}
+
+.login-box {
+    -fx-background-color: rgba(255, 255, 255, 0.95) !important;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 20, 0, 0, 5);
+    -fx-min-width: 380px;
+    -fx-max-width: 420px;
+    -fx-min-height: 580px;
+    -fx-max-height: 620px;
+}
+
+.login-field {
+    -fx-pref-height: 45px;
+    -fx-font-size: 15px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 2px;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: #6b7280;
+    -fx-text-fill: #374151;
+}
+
+.login-field:focused {
+    -fx-border-color: #667eea;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(102, 126, 234, 0.3), 8, 0, 0, 0);
+}
+
+.login-field:hover {
+    -fx-border-color: #9ca3af;
+}
+
+.login-button {
+    -fx-background-color: linear-gradient(to right, #667eea, #764ba2);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 20px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(102, 126, 234, 0.3), 8, 0, 0, 2);
+}
+
+.login-button:hover {
+    -fx-background-color: linear-gradient(to right, #5a67d8, #6b46c1);
+    -fx-effect: dropshadow(three-pass-box, rgba(102, 126, 234, 0.4), 10, 0, 0, 3);
+}
+
+.login-button:pressed {
+    -fx-background-color: linear-gradient(to right, #4c51bf, #553c9a);
+    -fx-effect: dropshadow(three-pass-box, rgba(102, 126, 234, 0.2), 5, 0, 0, 1);
+}
+
+.link-label {
+    -fx-text-fill: #667eea;
+    -fx-cursor: hand;
+    -fx-underline: true;
+    -fx-font-weight: bold;
+}
+
+.link-label:hover {
+    -fx-text-fill: #5a67d8;
+}
+
+.logo-title {
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #2d3748 !important;
+}
+
+/* Override dark theme styles */
+.login-container .label {
+    -fx-text-fill: #2d3748 !important;
+}
+
+.login-container .login-box .label {
+    -fx-text-fill: #2d3748 !important;
+}
+
+.error-label {
+    -fx-text-fill: #e53e3e;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(254, 226, 226, 0.8);
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 12px;
+}
+
+/* Separator styling */
+.separator .line {
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0.5px 0 0 0;
+}
+
+/* Additional responsive styling */
+@media screen and (max-width: 1280px) {
+    .login-container {
+        -fx-min-width: 1024px;
+        -fx-min-height: 576px;
+        -fx-pref-width: 1024px;
+        -fx-pref-height: 576px;
+    }
+}
+
+/* Animation effects */
+.login-box {
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+.login-box:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 25, 0, 0, 8);
+}
+
+/* Focus effects for better UX */
+.login-field:focused {
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Success message styling */
+.success-label {
+    -fx-text-fill: #38a169;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(198, 246, 213, 0.8);
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 12px;
+}
+
+/* Verification code field specific styling */
+.login-container .text-field {
+    -fx-background-color: #ffffff !important;
+    -fx-border-color: #d1d5db !important;
+    -fx-border-width: 2px !important;
+    -fx-border-radius: 8px !important;
+    -fx-background-radius: 8px !important;
+    -fx-text-fill: #374151 !important;
+    -fx-prompt-text-fill: #6b7280 !important;
+}
+
+.login-container .text-field:focused {
+    -fx-border-color: #667eea !important;
+    -fx-effect: dropshadow(three-pass-box, rgba(102, 126, 234, 0.3), 8, 0, 0, 0) !important;
+}
+
+.login-container .text-field:hover {
+    -fx-border-color: #9ca3af !important;
+}

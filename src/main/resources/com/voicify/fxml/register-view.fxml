@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="login-container" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.voicify.controller.RegisterController">
+    <center>
+        <StackPane>
+            <VBox alignment="CENTER" maxHeight="680" maxWidth="420" spacing="14" styleClass="login-box">
+                <padding>
+                    <Insets bottom="35" left="45" right="45" top="35" />
+                </padding>
+
+                <!-- Logo -->
+                <VBox alignment="CENTER" spacing="12">
+                    <ImageView fitHeight="70" fitWidth="70">
+                        <image>
+                            <Image url="@../icons/voicify.png" />
+                        </image>
+                    </ImageView>
+                    <Label style="-fx-font-size: 26px;" styleClass="logo-title" text="Voicify" />
+                    <Label style="-fx-font-size: 14px; -fx-text-fill: #666;" text="AI Translation Suite" />
+                </VBox>
+
+                <Separator prefWidth="300" />
+
+                <!-- Register Form -->
+                <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Create Account" />
+                <Label style="-fx-font-size: 14px; -fx-text-fill: #666;" text="Join Voicify to start translating" />
+
+                <VBox maxWidth="350" spacing="12">
+                    <TextField fx:id="usernameField" promptText="Username" styleClass="login-field" />
+
+                    <!-- Email verification section -->
+                    <VBox spacing="8">
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <TextField fx:id="emailField" promptText="Email Address" styleClass="login-field" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="sendCodeButton" onAction="#handleSendVerificationCode" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-font-size: 12px; -fx-padding: 8px 12px;" text="Send Code" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <TextField fx:id="verificationCodeField" maxWidth="258.0" prefHeight="25.0" prefWidth="240.0" promptText="Enter 6-digit code" styleClass="login-field" />
+                            <Button fx:id="verifyEmailButton" onAction="#handleVerifyEmail" prefHeight="33.0" prefWidth="84.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-size: 12px; -fx-padding: 8px 16px;" text="Verify" />
+                        </HBox>
+
+                        <Label fx:id="verificationStatusLabel" managed="false" style="-fx-font-size: 12px; -fx-padding: 4px 0;" visible="false" />
+                    </VBox>
+
+                    <PasswordField fx:id="passwordField" promptText="Password" styleClass="login-field" />
+                    <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" styleClass="login-field" />
+
+                    <Button fx:id="registerButton" maxWidth="Infinity" onAction="#handleRegister" styleClass="login-button" text="Create Account" />
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="5">
+                    <Label text="Already have an account?" />
+                    <Label fx:id="loginLabel" onMouseClicked="#handleLoginLink" styleClass="link-label" text="Sign In" />
+                </HBox>
+
+                <!-- Error message -->
+                <Label fx:id="errorLabel" managed="false" styleClass="error-label" visible="false" />
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>
