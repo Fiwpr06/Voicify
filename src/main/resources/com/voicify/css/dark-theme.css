@@ -1,0 +1,71 @@
+.root {
+    -fx-base: #1e1e2f;
+}
+
+.sidebar {
+    -fx-background-color: #1e1e2f;
+}
+
+.sidebar-button {
+    -fx-background-color: #2f2f44;
+    -fx-text-fill: #dddddd;
+    -fx-font-size: 14px;
+}
+
+.sidebar-label {
+    -fx-text-fill: #999999;
+    -fx-font-size: 12px;
+}
+
+.logo-title {
+    -fx-font-size: 26px;
+    -fx-text-fill: #e0e0e0;
+    -fx-font-weight: bold;
+}
+
+.logo-subtitle {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #bbbbbb;
+}
+
+.version-label {
+    -fx-text-fill: #555555;
+    -fx-font-size: 10px;
+}
+
+.separator {
+    -fx-background-color: #3b3b56;
+}
+
+.label {
+    -fx-text-fill: #eeeeee;
+}
+
+.text-area, .text-field {
+    -fx-background-color: #2f2f44;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-border-color: transparent;
+}
+
+.button {
+    -fx-background-color: rgba(105, 200, 171, 0.86);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.button:hover {
+    -fx-background-color: #357abd;
+}
+
+.table-view {
+    -fx-background-color: #2f2f44;
+    -fx-text-fill: #ffffff;
+    -fx-table-cell-border-color: transparent;
+    -fx-selection-bar: #4a90e2;
+    -fx-selection-bar-text: white;
+}

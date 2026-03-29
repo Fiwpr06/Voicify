@@ -1,0 +1,15 @@
+/* Kiểu dáng cho nút icon */
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+}
+
+.icon-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+.icon-button:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+}
