@@ -10,6 +10,7 @@ out/
 # --- Runtime/local data ---
 db/sessions/
 theme-preference.txt
+library/vosk-model-vn-0.4/graph/HCLG.fst
 
 # --- Local environment ---
 .env
