@@ -1,0 +1,4 @@
+# Python dependencies for Voicify gTTS integration
+gTTS==2.4.0
+pygame==2.5.2
+requests==2.31.0
