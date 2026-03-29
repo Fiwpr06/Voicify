@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.voicify.controller.MainController">
+   <!-- Sidebar -->
+   <left>
+      <VBox prefWidth="280.0" spacing="8.0" styleClass="sidebar">
+         <padding>
+            <Insets top="20" bottom="20" left="20" right="20"/>
+         </padding>
+         <children>
+            <!-- Logo -->
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <ImageView fitWidth="40" fitHeight="40">
+                     <image>
+                        <Image url="@/com/voicify/icons/voicify.png" preserveRatio="true"/>
+                     </image>
+                  </ImageView>
+                  <Label text="Voicify" styleClass="logo-title" />
+                  <Label text="AI Translation Suite" styleClass="logo-subtitle" />
+               </children>
+            </VBox>
+
+            <Separator styleClass="separator"/>
+
+            <!-- Navigation -->
+            <Label text="TRANSLATION" styleClass="sidebar-label"/>
+
+            <Button fx:id="sidebarRegularTab" onAction="#handleSidebarRegularTab"
+                    maxWidth="Infinity" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitWidth="24" fitHeight="24">
+                     <image>
+                        <Image url="@/com/voicify/icons/translate.png" preserveRatio="true" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <text>Translation</text>
+            </Button>
+
+            <Button fx:id="sidebarCabinTab" onAction="#handleSidebarCabinTab"
+                          maxWidth="Infinity" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitWidth="24" fitHeight="24">
+                     <image>
+                        <Image url="@/com/voicify/icons/microphone.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <text>Cabin Mode</text>
+            </Button>
+
+            <Button fx:id="sidebarAITab" onAction="#handleSidebarAITab"
+                          maxWidth="Infinity" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitWidth="24" fitHeight="24">
+                     <image>
+                        <Image url="@/com/voicify/icons/ai.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <text>AI Translation</text>
+            </Button>
+
+            <Button fx:id="sidebarFileProcessing" text="File Processing" onAction="#handleFileProcessingButton"
+                    maxWidth="Infinity" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitWidth="24" fitHeight="24">
+                     <image>
+                        <Image url="@/com/voicify/icons/file.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <Button fx:id="sidebarHistoryTab" onAction="#handleSidebarHistoryTab"
+                          maxWidth="Infinity" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitWidth="24" fitHeight="24">
+                     <image>
+                        <Image url="@/com/voicify/icons/history.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <text>History</text>
+            </Button>
+
+            <Label text="FILE OPERATIONS" styleClass="sidebar-label"/>
+
+            <Button fx:id="sidebarExportHistory" text="Export History" onAction="#handleExportButton"
+                    maxWidth="Infinity" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitWidth="24" fitHeight="24">
+                     <image>
+                        <Image url="@/com/voicify/icons/export.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <Label text="SETTINGS" styleClass="sidebar-label"/>
+
+            <Button fx:id="sidebarDarkMode" text="Dark Mode" onAction="#handleDarkModeMenuItem"
+                    maxWidth="Infinity" styleClass="sidebar-button"/>
+
+            <Button fx:id="sidebarAbout" text="About Voicify" onAction="#handleAboutMenuItem"
+                    maxWidth="Infinity" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitWidth="24" fitHeight="24">
+                     <image>
+                        <Image url="@/com/voicify/icons/about.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <!-- Thêm nút Refresh All vào sidebar -->
+            <Button fx:id="sidebarRefreshAll" onAction="#handleRefreshAllButton"
+                    maxWidth="Infinity" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitWidth="24" fitHeight="24">
+                     <image>
+                        <Image url="@/com/voicify/icons/refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <text>Refresh All</text>
+            </Button>
+
+
+            <!-- Spacer -->
+            <Region VBox.vgrow="ALWAYS" />
+
+            <!-- Footer -->
+            <VBox alignment="CENTER">
+               <Separator styleClass="separator" />
+               <Label text="Version 1.0" styleClass="version-label" />
+               <!-- Thêm nút Logout vào sidebar -->
+               <Button fx:id="sidebarLogout" text="Logout" onAction="#handleLogout"
+                       maxWidth="Infinity" styleClass="sidebar-button">
+                  <graphic>
+                     <ImageView fitWidth="24" fitHeight="24">
+                        <image>
+                           <Image url="@/com/voicify/icons/exit.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+
+
+   <!-- Main Content -->
+   <center>
+<!--      <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">-->
+<!--         <tabs>-->
+<!--            <Tab text="Regular Translation" fx:id="regularTab">-->
+<!--               <fx:include source="./translation.fxml" />-->
+<!--            </Tab>-->
+<!--            <Tab text="Cabin Translation" fx:id="cabinTab">-->
+<!--               <fx:include source="./cabin-translation.fxml" />-->
+<!--            </Tab>-->
+<!--            <Tab text="AI Translation" fx:id="aiTab">-->
+<!--               <fx:include source="./ai-translation.fxml" />-->
+<!--            </Tab>-->
+<!--            <Tab text="History" fx:id="historyTab">-->
+<!--               <fx:include source="./history.fxml" />-->
+<!--            </Tab>-->
+<!--         </tabs>-->
+<!--      </TabPane>-->
+      <StackPane fx:id="mainContentPane">
+         <children>
+
+            <!-- Regular Translation Tab -->
+            <VBox fx:id="regularTranslationContent" spacing="15" visible="true" managed="true" alignment="TOP_CENTER">
+               <padding><Insets top="25" right="25" bottom="25" left="25" /></padding>
+               <children>
+                  <!-- Title with refined styling -->
+                  <Label text="Regular Translation" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+                  <!-- Text areas with improved proportions and styling -->
+                  <HBox spacing="15" alignment="TOP_CENTER">
+                     <children>
+                        <TextArea fx:id="sourceTextArea" promptText="Enter English text..." prefHeight="250" prefWidth="400" wrapText="true" style="-fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                        <TextArea fx:id="translationTextArea" promptText="Vietnamese translation" prefHeight="250" prefWidth="400" wrapText="true" editable="false" style="-fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+
+                  <!-- Button group with consistent sizing and spacing -->
+                  <HBox spacing="12" alignment="CENTER" style="-fx-padding: 15 0 15 0;">
+                     <children>
+                        <Button fx:id="recordButton" text="Start Recording" onAction="#handleRecordButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="loadFileButton" text="Load File" onAction="#handleLoadFileButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="translateButton" text="Translate" onAction="#handleTranslateButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="speakEnglishButton" text="Speak EN" onAction="#handleSpeakEnglishButton" prefWidth="120" style="-fx-font-size: 14px;" />
+                        <Button fx:id="speakVietnameseButton" text="Speak VI" onAction="#handleSpeakVietnameseButton" prefWidth="120" style="-fx-font-size: 14px;" />
+                        <Button fx:id="regularRefreshButton" text="Refresh" onAction="#handleRegularRefreshButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                     </children>
+                  </HBox>
+
+                  <!-- Status label with subtle styling -->
+                  <Label fx:id="statusLabel" text="Ready" style="-fx-font-size: 13px; -fx-padding: 5 0 0 0;" />
+               </children>
+            </VBox>
+
+            <!-- Cabin Translation Tab -->
+            <VBox fx:id="cabinTranslationContent" spacing="15" visible="false" managed="false" alignment="TOP_CENTER">
+               <padding><Insets top="25" right="25" bottom="25" left="25" /></padding>
+               <children>
+                  <!-- Title with refined styling -->
+                  <Label text="Cabin Mode" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+                  <!-- Text areas with improved proportions and styling -->
+                  <HBox spacing="15" alignment="TOP_CENTER">
+                     <children>
+                        <TextArea fx:id="cabinSourceTextIOSArea" promptText="English speech input..." prefHeight="250" prefWidth="400" wrapText="true" style="-fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                        <TextArea fx:id="cabinTranslationTextArea" promptText="Vietnamese translation" prefHeight="250" prefWidth="400" wrapText="true" editable="false" style="-fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+
+                  <!-- Button group with consistent sizing and spacing -->
+                  <HBox spacing="12" alignment="CENTER" style="-fx-padding: 15 0 15 0;">
+                     <children>
+                        <Button fx:id="cabinMicButton" text="Start Cabin" onAction="#handleCabinMicButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="cabinSpeakButton" text="Speak" onAction="#handleCabinSpeakButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="cabinRefreshButton" text="Refresh" onAction="#handleCabinRefreshButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                     </children>
+                  </HBox>
+
+                  <!-- Status label with subtle styling -->
+                  <Label fx:id="cabinStatusLabel" text="Ready" style="-fx-font-size: 13px; -fx-padding: 5 0 0 0;" />
+               </children>
+            </VBox>
+
+            <!-- AI Translation Tab -->
+            <VBox fx:id="aiTranslationContent" spacing="15" visible="false" managed="false" alignment="TOP_CENTER">
+               <padding><Insets top="25" right="25" bottom="25" left="25" /></padding>
+               <children>
+                  <!-- Title with refined styling -->
+                  <Label text="AI Translation" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+                  <!-- Text areas with improved proportions and styling -->
+                  <HBox spacing="15" alignment="TOP_CENTER">
+                     <children>
+                        <VBox spacing="8" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Source Text" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                              <TextArea fx:id="aiSourceTextArea" promptText="Enter English text..." prefHeight="200" prefWidth="300" wrapText="true" style="-fx-font-size: 14px;" />
+                              <Label text="Current Translation" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10 0 0 0;" />
+                              <TextArea fx:id="aiCurrentTranslationArea" promptText="Current translation..." prefHeight="200" prefWidth="300" wrapText="true" style="-fx-font-size: 14px;" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="8" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="AI Improved Translation" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                              <TextArea fx:id="aiImprovedTranslationArea" promptText="AI improved translation" prefHeight="445" prefWidth="300" wrapText="true" editable="false" style="-fx-font-size: 14px;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <!-- Button group with consistent sizing and spacing -->
+                  <HBox spacing="12" alignment="CENTER" style="-fx-padding: 15 0 15 0;">
+                     <children>
+                        <Button fx:id="loadTranslationButton" text="Load Translation" onAction="#handleLoadTranslationButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="improveWithAIButton" text="Improve with AI" onAction="#handleImproveWithAIButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="speakAIButton" text="Speak" onAction="#handleSpeakAIButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="saveAITranslationButton" text="Save" onAction="#handleSaveAITranslationButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="aiRefreshButton" text="Refresh" onAction="#handleAIRefreshButton" prefWidth="150" style="-fx-font-size: 14px;" />
+                     </children>
+                  </HBox>
+
+                  <!-- AI controls with consistent styling -->
+                  <HBox spacing="12" alignment="CENTER" style="-fx-padding: 10 0 15 0;">
+                     <children>
+                        <Label text="AI Model:" style="-fx-font-size: 13px;" />
+                        <ChoiceBox fx:id="aiModelChoice" prefWidth="160" style="-fx-font-size: 13px;" />
+                        <Label text="Temperature:" style="-fx-font-size: 13px;" />
+                        <Slider fx:id="aiTemperatureSlider" min="0" max="1" value="0.7" prefWidth="120" />
+                        <Label fx:id="temperatureLabel" text="0.7" style="-fx-font-size: 13px;" />
+                     </children>
+                  </HBox>
+
+                  <!-- Status label with subtle styling -->
+                  <Label fx:id="aiStatusLabel" text="Ready for AI translation improvement" style="-fx-font-size: 13px; -fx-padding: 5 0 0 0;" />
+               </children>
+            </VBox>
+
+            <!-- History Tab -->
+            <VBox fx:id="historyContent" spacing="15" visible="false" managed="false" alignment="TOP_CENTER">
+               <padding><Insets top="25" right="25" bottom="25" left="25" /></padding>
+               <children>
+                  <!-- Title with refined styling -->
+                  <Label text="Translation History" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+                  <!-- Search bar with consistent styling -->
+                  <HBox spacing="12" alignment="CENTER" style="-fx-padding: 0 0 15 0;">
+                     <children>
+                        <TextField fx:id="searchField" promptText="Search history..." prefWidth="400" style="-fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="searchButton" text="Search" onAction="#handleSearchButton" prefWidth="120" style="-fx-font-size: 14px;" />
+                     </children>
+                  </HBox>
+
+                  <!-- TableView with refined column widths -->
+                  <TableView fx:id="historyTableView" prefHeight="400">
+                     <columns>
+                        <TableColumn fx:id="idColumn" text="ID" prefWidth="60" />
+                        <TableColumn fx:id="sourceColumn" text="Source Text" prefWidth="250" />
+                        <TableColumn fx:id="translationColumn" text="Translation" prefWidth="250" />
+                        <TableColumn fx:id="typeColumn" text="Type" prefWidth="100" />
+                        <TableColumn fx:id="dateColumn" text="Date" prefWidth="180" />
+                     </columns>
+                  </TableView>
+
+                  <!-- Button group with consistent sizing and spacing -->
+                  <HBox spacing="12" alignment="CENTER" style="-fx-padding: 15 0 0 0;">
+                     <children>
+                        <Button fx:id="exportButton" text="Export" onAction="#handleExportButton" prefWidth="120" style="-fx-font-size: 14px;" />
+                        <Button fx:id="deleteButton" text="Delete" onAction="#handleDeleteButton" prefWidth="120" style="-fx-font-size: 14px;" />
+                        <Button fx:id="refreshButton" text="Refresh" onAction="#handleRefreshButton" prefWidth="120" style="-fx-font-size: 14px;" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+
+            <!-- File Processing Tab -->
+            <VBox fx:id="fileProcessingContent" spacing="15" visible="false" managed="false" alignment="TOP_CENTER">
+               <padding><Insets top="25" right="25" bottom="25" left="25" /></padding>
+               <children>
+                  <!-- Title với nút refresh -->
+                  <Label fx:id="fileProcessingTitle" text="File Processing" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+                  <!-- Text areas -->
+                  <HBox spacing="15" alignment="TOP_CENTER">
+                     <children>
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                           <Label text="Input" style="-fx-font-weight: bold;" />
+                           <TextArea fx:id="fileInputTextArea" promptText="Load a file or paste text here..."
+                                     prefHeight="300" prefWidth="400" wrapText="true" style="-fx-font-size: 14px;" />
+                        </VBox>
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                           <Label text="Output" style="-fx-font-weight: bold;" />
+                           <TextArea fx:id="fileOutputTextArea" promptText="Processed output will appear here..."
+                                     prefHeight="300" prefWidth="400" wrapText="true" style="-fx-font-size: 14px;" />
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <!-- Processing options -->
+                  <HBox spacing="10" alignment="CENTER">
+                     <Label text="Processing Type:" />
+                     <RadioButton fx:id="translateRadio" text="Translate" selected="true" onAction="#handleProcessingTypeChange">
+                        <toggleGroup>
+                           <ToggleGroup fx:id="processingType" />
+                        </toggleGroup>
+                     </RadioButton>
+                     <RadioButton fx:id="summarizeRadio" text="Summarize" toggleGroup="$processingType" onAction="#handleProcessingTypeChange" />
+                  </HBox>
+
+                  <!-- Button group -->
+                  <HBox spacing="12" alignment="CENTER" style="-fx-padding: 15 0 15 0;">
+                     <children>
+                        <Button fx:id="loadFileForProcessingButton" text="Load File" onAction="#handleLoadFileForProcessing" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="processFileButton" text="Process File" onAction="#handleProcessFile" prefWidth="150" style="-fx-font-size: 14px;" />
+                        <Button fx:id="saveOutputButton" text="Save Output" onAction="#handleSaveOutput" prefWidth="150" style="-fx-font-size: 14px;" />
+                     </children>
+                  </HBox>
+
+                  <VBox spacing="10" alignment="CENTER">
+                     <Label text="File Processing" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+                     <Label text="Upload your file to process" style="-fx-font-size: 16px;" />
+                     <HBox spacing="10" alignment="CENTER">
+                        <Label text="Supported formats:" style="-fx-font-size: 12px; -fx-text-fill: #666666;" />
+                        <Label text="TXT, PDF, DOCX, XLSX, XLS, CSV, JSON, XML" style="-fx-font-size: 12px; -fx-text-fill: #666666;" />
+                     </HBox>
+                  </VBox>
+
+                  <!-- Status label -->
+                  <Label fx:id="fileProcessingStatusLabel" text="Ready" style="-fx-font-size: 13px; -fx-padding: 5 0 0 0;" />
+               </children>
+            </VBox>
+
+         </children>
+      </StackPane>
+   </center>
+
+</BorderPane>
